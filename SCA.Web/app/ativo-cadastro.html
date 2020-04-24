@@ -1,0 +1,357 @@
+﻿<div id="validar-login" ng-controller="BaseController"></div>
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" ng-model="procurar" class="form-control" placeholder="Pesquisar...">
+                    <button class="btn btn-success" title="Novo" data-target="#janela-modal-cadastro" data-toggle="modal" ng-disabled="usuarioLogado.perfil.toUpperCase() != 'GESTOR'" ng-click="novo()"><span class="glyphicon glyphicon-file"></span> Novo</button>
+                    <!--<button class="btn btn-warning" title="Filtro" data-target="#janela-modal-filtro" data-toggle="modal" ng-click="filtroSolicitacao()"><span class="glyphicon glyphicon-filter"></span> Filtros</button>-->
+                </div>
+            </form>
+            <div class="table-responsive" style="overflow-y: hidden; width: 100%;">
+                <table class="table table-bordered table-condensed table-hover" ng-init="listar()">
+                    <thead class="sca-home-backgroud-default">
+                        <tr>
+                            <th style="display: none;">Id</th>
+                            <th ng-click="ordenar('Id')">
+                                Id
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Id'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Nome')">
+                                Nome
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Nome'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Classe')">
+                                Classe
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Classe'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Fabricante')">
+                                Fabricante
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Fabricante'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+
+                            <th ng-click="ordenar('NumeroSerie')">
+                                Número de Série
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='NumeroSerie'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('ManutencaoAgendada')">
+                                Manutenção
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='ManutencaoAgendada'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+
+                            <th ng-click="ordenar('Situacao')">
+                                Situação
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Situacao'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ativo in Ativos|filter:procurar|orderBy:sortKey:reverse">
+                            <!--<tr dir-paginate="solicitacao in solicitacoes|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:20">-->
+                            <td>{{ativo.id}}</td>
+                            <td>{{ativo.nome}}</td>
+                            <td>{{ativo.classe.nome}}</td>
+                            <td>{{ativo.fabricante}}</td>
+                            <td>{{ativo.numeroSerie}}</td>
+                            <td align="center"><button class="btn btn-link" data-target="#janela-modal-dados-manutencao" data-toggle="modal" ng-click="agendarManutencao(ativo.id)" ng-show="ativo.manutencaoAgendada"><span class="icon-stopwatch" style="font-size: 1.4em;"></span></button></td>
+                            <td>{{ativo.situacao}}</td>
+
+                            <td class="text-center" style="width: 170px;">                                
+                                <button class="btn btn-sm btn-primary" title="Editar" data-target="#janela-modal-cadastro" data-toggle="modal" ng-disabled="usuarioLogado.perfil.toUpperCase() != 'GESTOR'" ng-click="editar(ativo.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+                                <button class="btn btn-sm btn-info" title="Agendar Manutenção" ng-disabled="ativo.situacao == 'INATIVO' || usuarioLogado.perfil.toUpperCase() == 'GESTOR'" ng-click="agendarManutencao(ativo.id)" data-target="#janela-modal-agenda-manutencao" data-toggle="modal"><span class="icon-calendar"></span></button>
+                                <button class="btn btn-sm btn-danger" title="Excluir" data-target="#janela-modal-exclusao" data-toggle="modal" ng-click="confirmarExclusao(ativo.id)" ng-disabled="usuarioLogado.perfil.toUpperCase() != 'GESTOR'"><span class="glyphicon glyphicon-trash"></span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="12">
+                                Quantidade total de registros: {{Ativos.length}}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!--<div style="border: 0px solid; margin-top: -20px;">
+                    <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--modal de cadastro e edição de dados-->
+<div id="janela-modal-cadastro" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header sca-home-backgroud-default">
+                <h4>Cadastro de Ativo</h4>
+            </div>
+
+            <form name="cadastroForm" novalidate>
+                <div class="modal-body" style="font-size: 0.9em;" ng-disabled="Ativo.situacao == 'INATIVO'">
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" class="form-control" ng-model="Ativo.nome" required ng-disabled="Ativo.situacao == 'INATIVO'" />
+                            <div ng-messages="cadastroForm.nome.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe o Nome.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row filtro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="classe">Classe:</label>
+                                <select class="form-control"
+                                        id="ddlClasse"
+                                        name="classe"
+                                        ng-model="Ativo.classeId"
+                                        required
+                                        ng-disabled="Ativo.situacao == 'INATIVO'"
+                                        ng-init="listarClasses()">
+                                    <option value="">Selecione</option>
+                                    <option ng-repeat="classe in Classes" value={{classe.id}} ng-selected="Ativo.classeId == classe.id"> {{classe.nome}} </option>
+                                </select>
+                                <div ng-messages="cadastroForm.classe.$error">
+                                    <div ng-message="required" class="text-danger">
+                                        Por favor, escolha uma Classe.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="fabricante">Fabricante:</label>
+                                <input type="text" name="fabricante" class="form-control" ng-model="Ativo.fabricante" required ng-disabled="Ativo.situacao == 'INATIVO'" />
+                                <div ng-messages="cadastroForm.fabricante.$error">
+                                    <div ng-message="required" class="text-danger">
+                                        Por favor, informe o Fabricante.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row filtro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="numeroSerie">Número de Série:</label>
+                                <input type="text" name="numeroSerie" class="form-control" ng-model="Ativo.numeroSerie" required ng-disabled="Ativo.situacao == 'INATIVO'" />
+                                <div ng-messages="cadastroForm.numeroSerie.$error">
+                                    <div ng-message="required" class="text-danger">
+                                        Por favor, informe o Número de Série.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <label for="status" name="status">Status:</label>
+                            <br />
+                            <select id="ddlStatus"
+                                    class="form-control"
+                                    name="situacao"
+                                    ng-model="Ativo.situacao"
+                                    required>
+                                <option value="">Selecione</option>
+                                <option value="ATIVO">Ativo</option>
+                                <option value="INATIVO">Inativo</option>
+                                <option value="MANUTENCAO">Manutenção</option>
+                            </select>
+                            <div ng-messages="cadastroForm.situacao.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, escolha uma opção.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-success btn-large" ng-disabled="cadastroForm.$invalid" ng-click="salvarOuAtualizar()"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                        &nbsp;
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" ng-click="fecharCadastro()"><span class="glyphicon glyphicon-remove-sign"></span> Fechar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--modal de dados manutencao-->
+<div id="janela-modal-dados-manutencao" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header sca-home-backgroud-default">
+                <h4>Detalhes da Manutenção</h4>
+            </div>
+
+            <form name="dadosManutencaoForm" novalidate>
+
+                <div class="modal-body" style="font-size: 0.9em;">
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" class="form-control" ng-model="Ativo.nome" readonly />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="numeroSerie">Número de Série:</label>
+                                <input type="text" name="numeroSerie" class="form-control" ng-model="Ativo.numeroSerie" readonly />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="tipoManutencao">Tipo de Manutenção:</label>
+                                <input type="text" name="tipoManutencao" class="form-control" ng-model="Ativo.tipoManutencao" readonly />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="dataManutencao">Manutenção agendada para:</label>
+                                <input type="text" name="numeroSerie" class="form-control" value="{{Ativo.dataManutencao | date:'dd/MM/yyyy'}}" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" ng-click="fecharCadastro()"><span class="glyphicon glyphicon-remove-sign"></span> Fechar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--modal de agendar manutencao-->
+<div id="janela-modal-agenda-manutencao" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header sca-home-backgroud-default">
+                <h4>Agendar Manutenção</h4>
+            </div>
+
+            <form name="agendarManutencaoForm" novalidate>
+
+                <div class="modal-body" style="font-size: 0.9em;">
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="nome">Nome:</label>
+                                <input type="text" name="nome" class="form-control" ng-model="Ativo.nome" readonly />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="numeroSerie">Número de Série:</label>
+                                <input type="text" name="numeroSerie" class="form-control" ng-model="Ativo.numeroSerie" readonly />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <label for="status" name="status">Tipo de Manutenção:</label>
+                            <br />
+                            <select id="ddlStatus"
+                                    class="form-control"
+                                    name="tipoManutencao"
+                                    ng-model="Ativo.tipoManutencao"
+                                    required>
+                                <option value="">Selecione</option>
+                                <option value="Preventiva">Preventiva</option>
+                                <option value="Corretiva">Corretiva</option>
+                            </select>
+                            <div ng-messages="cadastroForm.tipoManutencao.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, escolha uma opção.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <div>
+                                <label for="dataManutencao">Agedar para:</label>
+                                <input type="date" name="dataManutencao" min="" onkeydown="return false" id="dataManutencao" class="form-control" ng-model="Ativo.dataManutencao" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-success btn-large" data-dismiss="modal" ng-disabled="agendarManutencaoForm.$invalid" ng-click="agendar()"><span class="glyphicon glyphicon-floppy-disk"></span> Agendar</button>
+                        &nbsp;
+                        <button class="btn btn-warning btn-large" data-dismiss="modal" ng-disabled="agendarManutencaoForm.$invalid || Ativo.manutencaoAgendada == false" ng-click="cancelarAgendamento()"><span class="glyphicon glyphicon-ban-circle"></span> Cancelar Agendamento</button>
+                        &nbsp;
+                        <button class="btn btn-danger btn-large" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> Fechar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--modal de exclusao-->
+<div id="janela-modal-exclusao" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4>Excluir Ativo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        Deseja realmente excluir o Ativo?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-3 col-lg-offset-2 text-center" style="margin-bottom: 10px;">
+                        <button class="btn btn-success btn-block" data-dismiss="modal" ng-click="excluir()"><span class="glyphicon glyphicon-ok"></span> Sim</button>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-2 text-center">
+                        <button class="btn btn-danger btn-block pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-ban-circle"></span> Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

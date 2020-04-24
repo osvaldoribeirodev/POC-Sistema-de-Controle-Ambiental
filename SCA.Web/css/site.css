@@ -1,0 +1,639 @@
+﻿/*************************************************************************************************/
+@font-face {
+    font-family: 'fontello';
+    src: url('../Fonts/fontello/');
+    src: url('../Fonts/fontello/fontello.eot?94817448');
+    src: url('../Fonts/fontello/fontello.eot?94817448#iefix') format('embedded-opentype'), url('../Fonts/fontello/fontello.woff?94817448') format('woff'), url('../Fonts/fontello/fontello.ttf?94817448') format('truetype'), url('../Fonts/fontello/fontello.svg?94817448#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: sans-serif;
+    background-image: url(../Images/mapa.jpg);
+    /*background-repeat: no-repeat;*/
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    background-size: 100%;
+    /*background-position-y: center;*/
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Cabecaçho*/
+.sca-cabecalho-transparente {
+    /*background-color: rgba(220,220,220, 0.9);*/
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.sca-cabecalho-normal {
+    background-color: #F8F8F8;
+    transition: color 1s ease;
+    transition: background 1s ease;
+    border-bottom: 1px solid #a0a0a0;
+}
+
+.sca-localize-veiculo {
+    border: 0px solid;
+    margin-right: 25px;
+    margin-top: 10px;
+    right: 0;
+    position: absolute;
+}
+
+    .sca-localize-veiculo a {
+        font-family: Calibri;
+        font-size: 1.2em;
+        text-decoration: none;
+        color: #E3001B;
+    }
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Carousel*/
+.sca-carousel-texto {
+    top: 0px;
+    font-family: 'Franklin Gothic', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.5em;
+    text-shadow: #000 1px -1px 2px, #000 -1px 1px 2px, #000 1px 1px 2px, #000 -1px -1px 2px;
+}
+
+    .sca-carousel-texto h1 {
+        font-size: 2.5em;
+        font-family: 'Franklin Gothic', Arial, Helvetica, sans-serif;
+        text-shadow: #000 1px -1px 20px, #000 -1px 1px 20px, #000 1px 1px 20px, #000 -1px -1px 20px
+        /*text-shadow: 1px 1px #000;*/
+    }
+
+    .sca-carousel-texto h2 {
+        font-size: 1.8em;
+        font-family: 'Franklin Gothic', Arial, Helvetica, sans-serif;
+        text-shadow: #000 1px -1px 20px, #000 -1px 1px 20px, #000 1px 1px 20px, #000 -1px -1px 20px
+        /*text-shadow: 1px 1px #000;*/
+    }
+
+    .sca-carousel-texto h3 {
+        color: #fff;
+        font-size: 1.3em;
+        font-family: 'Franklin Gothic', Arial, Helvetica, sans-serif;
+        text-shadow: #000 1px -1px 20px, #000 -1px 1px 20px, #000 1px 1px 20px, #000 -1px -1px 20px
+        /*text-shadow: 1px 1px #000;*/
+    }
+
+    .sca-carousel-texto p {
+        font-size: 3.5em;
+        font-weight: lighter;
+        font-family: 'Franklin Gothic', Arial, Helvetica, sans-serif;
+        text-shadow: #000 1px -1px 20px, #000 -1px 1px 20px, #000 1px 1px 20px, #000 -1px -1px 20px
+        /*text-shadow: 1px 1px #000;*/
+    }
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Menu List*/
+.sca-menu-list {
+    font-family: Calibri;
+    margin-top: 50px;
+}
+
+    .sca-menu-list li {
+        font-size: 1.3em;
+        margin-right: 0px;
+        border: 0px solid;
+        color: #01509D;
+        font-weight: bold;
+    }
+
+        .sca-menu-list li a {
+            text-decoration: none;
+            /*color: #E3001B;*/
+            color: #1D7D7F;
+        }
+
+        .sca-menu-list li span {
+            border: 0px solid;
+            padding: 3px;
+        }
+
+        .sca-menu-list li:hover {
+            color: #01376c;
+        }
+
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Menu Brand*/
+.sca-menu-list-brand {
+    /*background-color: #4e4e4e;*/
+    margin-top: 40px;
+    /*color: #fff;*/
+    /*color: #E3001B;*/
+    color: #005AA9;
+    font-family: Calibri;
+    margin-right: 15px;
+}
+
+    .sca-menu-list-brand li {
+        border: 0px solid;
+        text-align: center;
+        height: 35px;
+        font-size: 2em;
+        width: 50px;
+        /*color: #E3001B;*/
+        color: #1D7D7F;
+    }
+
+        .sca-menu-list-brand li a {
+            text-decoration: none;
+            /*color: #E3001B;*/
+            color: #005AA9;
+        }
+
+/*.sca-menu-list-brand li:hover > .sca-submenu-list-brand {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }*/
+
+.sca-submenu-list-brand {
+    /*display: none;*/
+    right: 0px;
+    position: absolute;
+    color: #fff;
+    margin-top: -6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+
+    /*filter: alpha(opacity=0);
+    -webkit-transition: 200ms ease;
+    -moz-transition: 200ms ease;
+    -o-transition: 200ms ease;
+    transition: 200ms ease;*/
+}
+
+    .sca-submenu-list-brand li {
+        border-bottom: 1px solid #6c6c6c;
+        text-align: left;
+        padding-left: 15px;
+        width: 300px;
+        background-color: #F8F8F8;
+        height: 30px;
+        /*right: 20px;*/
+        font-size: 0.6em;
+        padding-top: 4px;
+    }
+
+        .sca-submenu-list-brand li:hover {
+            color: #fff;
+            font-weight: bold;
+            background-color: #4d7f71;
+            text-decoration: none;
+        }
+
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Sessoes*/
+.sca-titulo-sessoes {
+    color: #333333;
+    margin-bottom: 30px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+/*Empresa*/
+.sca-empresa-container {
+    border: 0px solid;
+    height: auto;
+    background-color: #fff;
+    z-index: 20;
+}
+
+.sca-items-empresa-icon {
+    font-size: 7em;
+    color: #43a385;
+}
+
+.sca-items-empresa-texto {
+    font-size: 1.2em;
+    padding-left: 7px;
+    padding-right: 10px;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Sistema*/
+.sca-sistema-container {
+    position: initial;
+    background-color: #F6F6F6;
+    height: auto;
+}
+
+.sca-items-sitema {
+    position: relative;
+}
+
+    .sca-items-sitema p, h3 {
+        z-index: 2;
+        position: relative;
+        color: #000;
+    }
+
+    .sca-items-sitema:before {
+        background-image: url(../Images/152200_1_imultiuploader1.jpg.png);
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        z-index: 1;
+        opacity: 0.3;
+        /*content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.3;
+        background-image: url(../Images/152200_1_imultiuploader1.jpg.png);
+        background-repeat: no-repeat;
+        background-position: 50% 0;        
+        background-size: cover;*/
+    }
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Como Funciona*/
+.sca-como-funciona-container {
+    background-color: rgba(255,255,255, 0.7);
+}
+
+.sca-como-funciona-quadro, .sca-como-funciona-quadro-verde, .sca-como-funciona-quadro-laranja, .sca-como-funciona-quadro-azul-petroleo {
+    border: 0px solid;
+    background-color: rgba(51,153,153, 0.6);
+    z-index: 3;
+    height: 370px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.sca-como-funciona-quadro-verde {
+    background-color: rgba(51,153,153, 0.6);
+}
+
+.sca-como-funciona-quadro-laranja {
+    background-color: rgba(51,153,153, 0.6);
+}
+
+.sca-como-funciona-quadro-azul-petroleo {
+    background-color: rgba(51,153,153, 0.6);
+}
+
+.sca-como-funciona-icone, .sca-como-funciona-icone-verde, .sca-como-funciona-icone-laranja, .sca-como-funciona-icone-azul-petroleo {
+    border: 0px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 15px auto 0 auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 5em;
+    background-color: rgba(255,255,255, 0.9);
+    z-index: 25;
+    color: #339999;
+}
+
+.sca-como-funciona-icone-verde {
+    padding-top: 15px;
+    color: #339999;
+}
+
+.sca-como-funciona-icone-laranja {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #339999;
+}
+
+.sca-como-funciona-icone-azul-petroleo {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #339999;
+}
+
+.sca-como-funciona-texto {
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Produtos*/
+.sca-produtos-container {
+    background-image: url(../Images/fundo-tracejado.png);
+    padding: 15px;
+    background-attachment: fixed;
+    background-position-y: bottom;
+}
+
+.sca-produtos-texto-titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    color: #fff;
+    font-size: 1.5em;
+    /*text-shadow: 1px 1px #000;*/
+    text-shadow: #000 1px -1px 20px, #000 -1px 1px 20px, #000 1px 1px 20px, #000 -1px -1px 20px;
+    border: 0px solid;
+    width: 100%;
+    padding-right: 40px;
+    padding-top: 10%;
+}
+
+.sca-produtos-texto {
+    color: #000;
+    font-size: 1.4em;
+    /*background-color: rgb(12,106,180);*/
+    /*text-shadow: 1px 1px #000;*/
+    border: 0px solid;
+    padding: 20px;
+    margin: 0 auto 0 auto;
+    /*text-align: left;*/
+}
+
+.sca-produtos-icone {
+    border: 0px solid;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin: 15px auto 0 auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 6em;
+    background-color: #fff;
+    z-index: 25;
+    color: #026AB4;
+}
+
+.sca-produtos-div-texto {
+    top: -12px;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Planos*/
+.sca-planos-container {
+    background-color: #fff;
+    position: initial;
+    z-index: 20;
+}
+
+.sca-planos-div {
+    border: 0px solid;
+    color: #04184f;
+    position: relative;
+}
+
+.sca-planos-icone {
+    font-size: 2.7em;
+}
+
+.sca-planos-texto {
+    font-size: 1.2em;
+    /*position: absolute;*/
+    top: 20px;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Are Cliente*/
+/*.sca-area-cliente-container {
+    background-image: url(../Images/fundo-tracejado.png);
+    padding: 15px;
+    background-attachment: fixed;
+    background-position-y: bottom;
+}*/
+
+.sca-area-cliente-container {
+    background-color: rgba(255,255,255, 0.7);
+}
+
+.sca-area-cliente-quadro {
+    border: 0px solid;
+    /*background-color: rgba(0,0,0, 0.6);*/
+    background-color: #0078C0;
+    z-index: 3;
+    height: 370px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.sca-area-cliente-icone, .sca-area-cliente-icone-mobile {
+    border: 0px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 15px auto 0 auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 5em;
+    background-color: rgba(255,255,255, 0.9);
+    z-index: 25;
+    color: #696969;
+}
+
+.sca-area-cliente-icone-mobile {
+    font-size: 6em;
+    padding-top: 3px;
+    padding-left: 0px;
+}
+
+.sca-area-cliente-icone-padding {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.sca-area-cliente-texto {
+    font-size: 1.4em;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.sca-area-cliente-button {
+    background-color: #fade00;
+    border: 1px solid #005AA9;
+    width: 170px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #005AA9;
+}
+
+    .sca-area-cliente-button:hover {
+        background-color: #e1c803;
+        color: #005AA9;
+    }
+
+    .sca-area-cliente-button:visited:hover {
+        background-color: #e1c803;
+        color: #005AA9;
+    }
+
+    /*.sca-area-cliente-button:active {
+        background-color: #002d53;
+        color: #fff;
+    }
+
+    .sca-area-cliente-button:visited {
+        background-color: #002d53;
+        color: #fff;
+    }
+    
+
+    .sca-area-cliente-button:focus, .sca-area-cliente-button:active:focus {
+        background-color: #fade00;
+        color: #005AA9;
+    }*/
+/*************************************************************************************************/
+/*************************************************************************************************/
+/*Contatos*/
+.sca-contatos-container {
+    background-color: #fff;
+    position: initial;
+    height: auto;
+}
+
+.sca-contatos-quadro {
+    border: 0px solid;
+    z-index: 3;
+    height: 370px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/*.sca-contatos-icone {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #6c6c6c;
+    border: 2px solid;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 15px auto 0 auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 5em;
+    background-color: rgba(255,255,255, 0.9);
+    z-index: 25;    
+}*/
+
+.sca-contatos-icone {
+    border: 0px solid;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    margin: 15px auto 0 auto;
+    padding-top: 15px;
+    padding-right: 10px;
+    font-size: 6em;
+    background-color: #6d6d6d;
+    z-index: 25;
+    color: #fff;
+}
+
+.sca-contatos-texto {
+    font-size: 1.2em;
+    color: #6d6d6d;
+    font-weight: bold;
+    padding: 7px;
+    position: relative;
+    top: -40px;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Rodapé*/
+.sca-footer-background {
+    height: 180px;
+    border: 1px solid #808080;
+    background-color: #43655c;
+}
+/*************************************************************************************************/
+
+/*************************************************************************************************/
+/*Media Query*/
+@media screen and (max-width: 750px) {
+    .sca-carousel-texto {
+        top: -30px;
+    }
+
+        .sca-carousel-texto h1 {
+            font-size: 1.4em;
+        }
+
+        .sca-carousel-texto h2 {
+            font-size: 1em;
+        }
+
+        .sca-carousel-texto p {
+            font-size: 1.7em;
+        }
+
+    .sca-produtos-div-texto {
+        top: 2px;
+    }
+
+    .sca-produtos-texto-titulo {
+        font-size: 1.3em;
+        padding-right: 40px;
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+}
+
+
+@media screen and (min-width: 751px) {
+    .sca-produtos-texto-titulo {
+        font-size: 3em;
+        padding-right: 40px;
+        padding-left: 20px;
+        margin-top: 50px;
+    }
+}
+/*
+@media screen and (min-width: 751px) and (max-width: 970px) {
+    .sca-produtos-texto-titulo {
+        font-size: 3em;
+        padding-right: 40px;
+        padding-left: 20px;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (min-width: 971px) and (max-width: 1170px) {
+    .sca-produtos-texto-titulo {
+        font-size: 3em;
+        padding-right: 40px;
+        padding-left: 20px;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (min-width: 1171px) {
+    .sca-produtos-texto-titulo {
+        font-size: 3em;
+        padding-right: 40px;
+        padding-left: 20px;
+        margin-top: 50px;
+    }
+}*/
+/*************************************************************************************************/

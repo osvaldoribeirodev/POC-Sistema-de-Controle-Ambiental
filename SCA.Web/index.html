@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />-->
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="lib/fontello/css/fontello.css" rel="stylesheet" />
+
+    <script>
+    </script>
+
+    <style>
+        a[name] {
+            padding-top: 120px;
+            margin-top: -120px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!--Menu-->
+    <!-------------------------------------------------------------------------------------------->
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav-bar-menu" style="">
+        <section class="container col-xs-12">
+            <div class="row" style="border: 0px solid;">
+                <div class="col-xs-8 col-sm-3 col-md-2 col-lg-2 pull-left" style="border: 0px solid; height: 120px;">
+                    <a href="#home"><img src="Images/logo-sca.png" class="" style="width: 175px; border: 0px solid; position: absolute; z-index: 100; margin-top: 30px;" /></a>
+                </div>
+                <div class="col-xs-4 col-md-10 col-lg-10 visible-lg-block" style="border: 0px solid; height: 120px;">
+                    <nav style="" class="pull-right">
+
+                        <ul class="list-inline list-unstyled sca-menu-list">
+                            <li><a href="#home"><span>HOME</span></a></li>
+                            <li><a href="#empresa"><span>A EMPRESA</span></a></li>
+                            <li><a href="#nosso-sistema"><span>SISTEMA</span></a></li>
+                            <li><a href="#como-funciona"><span>COMO FUNCIONA</span></a></li>                            
+                            <li><a href="#contatos"><span>CONTATOS</span></a></li>
+                            <li><a href="/login.html"><span style="color: #ff0000;">ACESSO AO SISTEMA</span></a></li>
+                        </ul>
+
+                    </nav>
+
+                </div>
+                <div class="col-xs-4 col-sm-9 col-md-10 visible-xs-block visible-md-block visible-sm-block text-right" style="border: 0px solid;">
+
+                    <nav class="pull-right">
+
+                        <ul class="btn btn-link list-unstyled sca-menu-list-brand">
+                            <li>
+                                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                <ul class="list-unstyled sca-submenu-list-brand">
+                                    <a href="#home">
+                                        <li>HOME</li>
+                                    </a>
+                                    <a href="#empresa">
+                                        <li>A EMPRESA</li>
+                                    </a>
+
+                                    <a href="#nosso-sistema">
+                                        <li>SISTEMA</li>
+                                    </a>
+
+                                    <a href="#como-funciona">
+                                        <li>COMO FUNCIONA</li>
+                                    </a>                                    
+
+                                    <a href="#contatos">
+                                        <li>CONTATOS</li>
+                                    </a>
+
+                                    <a href="/login.html">
+                                        <li style="color: #ff0000;">ACESSO AO SISTEMA</li>
+                                    </a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </nav>
+    <!-------------------------------------------------------------------------------------------->
+
+    <a name="home" id="home"></a>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!-- Carousel -->
+    <!-------------------------------------------------------------------------------------------->
+    <section style="background-color: #F8F8F8;">
+
+        <div class="container" style="margin-top: 120px; border: 0px solid red; background-color: #F8F8F8;">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators" style="border: 0px solid; margin-bottom: -10px;">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <!--Item 1-->
+                    <div class="item active" style="border: 0px solid red;">
+                        <img class="first-slide center-block" src="Images/mineracao1.jpg" alt="First slide" style="">
+                        <div class="container">
+                            <div class="carousel-caption sca-carousel-texto" style="border: 0px solid; position: absolute;">
+                                <h1>Controle de Processo Minerário</h1>
+                                <!--<h2>Planos a partir de</h2>
+                                <p>R$59,90 <span style="font-size: 0.4em;">Por Mês</span></p>-->
+                                <br />
+                                <h3>Tenha o controle total dos processos e evite prejuízos.</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Item 2-->
+                    <div class="item">
+                        <img class="second-slide center-block" src="Images/mineracao2.jpg" alt="Second slide" style="">
+                        <div class="container">
+                            <div class="carousel-caption sca-carousel-texto" style="border: 0px solid; position: absolute;">
+                                <h1>Monitoramente de Barragens</h1>
+                                <!--<h2>Planos a partir de</h2>
+                                <p>R$49,90 <span style="font-size: 0.4em;">Por Mês</span></p>-->
+                                <br />
+                                <h3>Monitore as barragens em tempo real evitando acidentes e melhorando a qualidade.</h3>
+                                <!--<h3>Proteção que você procura! Você pode acompanhar tudo que acontece em tempo real com seu Smartphone.</h3>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Item 3-->
+                    <div class="item">
+                        <img class="third-slide center-block" src="Images/mineracao3.jpg" alt="Third slide" style="">
+                        <div class="container">
+                            <div class="carousel-caption sca-carousel-texto" style="border: 0px solid; position: absolute;">
+                                <h1>Acesse de qualquer lugar do Mundo.</h1>
+                                <!--<h2>Planos a partir de</h2>
+                                <p>R$49,90 <span style="font-size: 0.4em;">Por Mês</span></p>-->
+                                <br />
+                                <h3>Você pode acompanhar tudo que acontece em tempo real com seu Smartphone!</h3>
+                                <!--<h3>Serviço ideal para localizar e monitorar tudo aquilo que você julgar necessário. Como pessoas, animais, bagagens, malotes.</h3>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Item 4-->
+                    <div class="item" style="border: 0px solid red;">
+                        <img class="first-slide center-block" src="Images/mineracao4.jpg" alt="First slide" style="">
+                        <div class="container">
+                            <div class="carousel-caption sca-carousel-texto" style="border: 0px solid; position: absolute;">
+                                <h1>Relatórios Gerenciais</h1>
+                                <!--<h2>Planos a partir de</h2>
+                                <br />
+                                <p>R$49,90 <span style="font-size: 0.4em;">Por Mês</span></p>-->
+                                <br />
+                                <h3>Extração de relatóris e dados para tomada de decisões.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.carousel -->
+        </div>
+
+    </section>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!--A Empresa-->
+    <!-------------------------------------------------------------------------------------------->
+    <section class="sca-empresa-container">
+        <section class="container sca-empresa-container" style="">
+            <div class="row" style="border-bottom: 0px solid #808080;">
+                <a name="empresa" id="empresa"></a>
+                <article class="col-xs-12 text-center">
+                    <h2 class="sca-titulo-sessoes">A EMPRESA</h2>
+                    <div class="sca-items-empresa-texto text-justify">
+                        <p>A OR Sitemas é uma empresa do ramo de desenvolvimento de softwares voltados para o meio ambiente com atuação em todo teritário nacional.</p>
+                        <p>
+                            A nossa empresa nasceu da necessidade de oferecer um serviço diferenciado a nossos clientes que inclui monitoramento de barragens, controle do processos minerários e consultorias voltadas ao meio ambiente. Fomos buscar o que há de melhor no mercado para atender nossos clientes com tecnologia e inteligência.
+                        </p>
+                        <p>
+                            Com abrangência em todo território nacional, oferecemos, nossos serviços a todos os órgão federais e estaduais, com assistência e suporte técnico diferenciado.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="border: 0px solid;">
+                    <div class="text-center sca-items-empresa-icon">
+                        <i class="icon-target-3"></i>
+                    </div>
+                    <div class="text-center sca-items-empresa-texto">
+                        <h3>Nosso Objetivo</h3>
+                        <p> É prestar um serviço de qualidade, com um preço justo, alcançando a satisfação total de nossos clientes.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="border: 0px solid;">
+                    <div class="text-center sca-items-empresa-icon">
+                        <i class="icon-group"></i>
+                    </div>
+                    <div class="text-center sca-items-empresa-texto">
+                        <h3>Nossa Equipe</h3>
+                        <p> Com uma equipe própria e uma central de atendimento que trabalha sem parar, a OR Sitemas garante um atendimento personalizado e a Segurança da Informação. Com sede no Rio de Janeiro, a OR Sistemas possui a estrutura ideal para atender você, em todo o Brasil.</p>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="border: 0px solid;">
+                    <div class="text-center sca-items-empresa-icon">
+                        <i class="icon-handshake-o"></i>
+                    </div>
+                    <div class="text-center sca-items-empresa-texto">
+                        <h3>Nossa Missão</h3>
+                        <p> Atender com eficácia para garantir o conforto, a tranquilidade e a segurança de nossos Cliente.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </section>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!--Nosso Sistema-->
+    <!-------------------------------------------------------------------------------------------->
+    <section class="sca-sistema-container">
+        <section class="container sca-sistema-container" style="">
+
+            <div class="row" style="border-bottom: 0px solid #808080;">
+                <a name="nosso-sistema" id="nosso-sistema"></a>
+                <article class="col-xs-12 text-center">
+                    <h2 class="sca-titulo-sessoes">SISTEMA</h2>
+                    <div class="sca-items-empresa-texto text-justify">
+                        <p>O SCA Sistema de Controle Ambiental é chamado de "Sistema" porque se trata de uma combinação de equipamentos e prestação de serviços - Unidade de monitoramento / Envio de informações e Equipe de Pronta Resposta em período integral. A nossa finalidade é oferecer ferramentas para proteger a sua empresa e o meio ambinte, possibilitando também a segurança das pessoas que moram nas proximidades das barragens.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 col-md-3 col-lg-3 text-justify sca-items-empresa-texto">
+
+                    <h3>SENSOR DE <br/>MONITORAMENTO</h3>
+                    <p>Para monitorar as barragens de forma eficaz, é preciso realizar medições diárias e precisas. Isso é inviável utilizando técnicas manuais. Por isso, é extremamente importante contar com o uso de sensores para prevenir rompimentos de barragens.</p>
+                    <p>O Sistema SCA é compatível com os principais sensores de monitoramento. Os sensores fornecem informações precisas sobre a pressão da água em tubos e tanques. Além disso, é possível utilizar sensores para a medição do deslocamento horizontal do solo em profundidade, de forma automatizada por meio de um inclinômetro.</p>
+
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3">
+                    <div style="border: 0px solid;">
+                        <img src="Images/monitoramento-1.png" class="img-responsive" style="width: 350px; margin: 0 auto 0 auto;" />
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 text-justify sca-items-empresa-texto">
+
+                    <h3>Mensagens SMS</h3>
+                    <p>Short Message Service (SMS) consiste na mensagem de texto enviada via componente de serviço de telefone, web, móveis ou sistemas de comunicação que utilizam padronizados protocolos de comunicação a permitir a troca de mensagens curtas de texto entre ligações de dispositivos.</p>
+                    <p>O SCA oferece um serviço de envio de mensagens via SMS para os moradores que se encontram próximos das áreas de riscos, oferendo uma maior segurança.</p>
+
+                </div>
+
+                <div class="col-sm-6 col-md-3 col-lg-3 center-block">
+                    <div style="border: 0px solid;">
+                        <img src="Images/sms.png" class="img-responsive" style="width: 250px; margin: 0 auto 0 auto;" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="border-bottom: 0px solid #808080; height: 40px;">
+
+            </div>
+
+        </section>
+    </section>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!--Como Funciona-->
+    <!-------------------------------------------------------------------------------------------->
+    <section class="sca-como-funciona-container">
+        <section class="container " style="">
+
+            <div class="row" style="height: auto; border-bottom: 0px solid #808080;">
+                <a name="como-funciona" id="como-funciona"></a>
+                <article class="col-xs-12 text-center" style="">
+                    <h2 class="sca-titulo-sessoes">COMO FUNCIONA</h2>
+                </article>
+            </div>
+
+            <div class="row text-center" style="border: 0px solid; height: auto;">
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="border: 0px solid; height: auto;">
+
+                    <div class="sca-como-funciona-quadro">
+                        <div class="text-center sca-como-funciona-icone">
+                            <i class="icon-tools"></i>
+                        </div>
+                        <div class="sca-como-funciona-texto">
+                            O Módulo de Ativos possibilita o cadastro e gerenciamento dos ativos.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="border: 0px solid; height: auto;">
+
+                    <div class="sca-como-funciona-quadro-verde">
+                        <div class="text-center sca-como-funciona-icone-verde">
+                            <i class="icon-truck-1"></i>
+                        </div>
+                        <div class="sca-como-funciona-texto">
+                            O Módulo de Processos Minerários possibilita a gestão das atividades minerárias.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="border: 0px solid; height: auto;">
+
+                    <div class="sca-como-funciona-quadro-laranja">
+                        <div class="text-center sca-como-funciona-icone-laranja">
+                            <i class="icon-television"></i>
+                        </div>
+                        <div class="sca-como-funciona-texto">
+                            O Módulo de Moniramento funcionara de forma integrada a sensores existentes nas barragens.
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="border: 0px solid; height: auto;">
+
+                    <div class="sca-como-funciona-quadro-azul-petroleo" style="">
+                        <div class="text-center sca-como-funciona-icone-azul-petroleo">
+                            <i class="icon-chart-bar"></i>
+                        </div>
+                        <div class="sca-como-funciona-texto">
+                            O Módulo de Relatórios contendo informações gerenciais e administrativos dos processos minerários.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row text-center" style="border: 0px solid; height: 50px;">
+
+                <div class="col-xs-12 ">
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+        
+    <!-------------------------------------------------------------------------------------------->
+    <!--Contatos-->
+    <!-------------------------------------------------------------------------------------------->
+    <section class="container col-xs-12 sca-planos-container" style="">
+        <div class="row" style="border-bottom: 0px solid #808080; height: auto;">
+            <a name="contatos" id="contatos" style="border: 0px solid; z-index: 90;"></a>
+            <div class="col-xs-12 text-center">
+
+                <div class="col-xs-12 text-center" style="margin-bottom: 20px; background-color: rgb(51,153,153);">
+                    <h2 style="color: #fff;">FALE CONOSCO</h2>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 " style="">
+
+                <form style="border: 0px solid black">
+                    <!-- <input type="hidden" name="recipient" value="atendimento@sca.com.br">-->  <!--Pode ser qualquer endereço de email  -->
+                    <!-- <input type="hidden" name="redirect" value="http://desenv.sca.com.br/#contatos">--> <!-- Após o envio, o usuário será redirecionado para a página configurada aqui -->
+                    <!--<input type="hidden" name="subject" value="Contato - Sat Sistem"> --> <!-- Assunto da mensagem -->
+                    <!--<input type="hidden" name="email" value="atendimento@sca.com.br"> --><!--   Deve ser uma conta de email ativa em seu domínio  -->
+
+                    <div class="form-group">
+                        <label for="txtNome">Nome</label>
+                        <input type="text" size="30" name="Nome" id="txtNome" class="form-control" onkeypress="somente_letras(txtNome);">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtEmail">Email</label>
+                        <input type="text" size="30" name="replyto" id="txtEmail" class="form-control">
+                        <span id="spanEmail" class="itemRequired"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtTelefone">Telefone Fixo</label>
+                        <input type="text" size="30" name="Telefone Fixo" id="txtTelefoneFixo" class="form-control" placeholder="(99) 9999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtTelefoneCelular">Telefone</label>
+                        <input type="text" size="30" name="Telefone Celular" id="txtTelefoneCelular" class="form-control" placeholder="(99) 99999-9999">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtMensagem">Mensagem</label>
+                        <textarea class="form-control" id="txtArea" rows="5" name="Mensagem"></textarea>
+                    </div>
+
+                    <div class="form-group" style="border: 0px solid;">
+                        <input type="submit" class="btn pull-left" style="margin-right: 10px; background-color: #43A385; color: #fff;" value="Enviar">
+                        <img id="imgEnviar" src="Images/carregando.gif" class="pull-left" style="display: none;" />
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="alert alert-success" id="divMensagem" role="alert" style="display:none">
+                            <strong>Obrigado pelo contato!</strong>
+                            <br /><span>Aguarde! Logo ligaremos para você.</span>
+                        </div>
+                        <div class="alert alert-danger" id="divMensagemErro" role="alert" style="display:none">
+                            <strong>Erro!</strong>
+                            <br /><span>Erro ao enviar o e-mail. Tente novamente mais tarde.</span>
+                        </div>
+                        <div class="alert alert-danger" id="divMensagemCamposObrigatorios" role="alert" style="display:none">
+                            <strong>Campos obrigatórios</strong>
+                            <br /><span>Todos os campos são de preenchimento obrigatório.</span>
+                        </div>
+                    </div>
+
+                    <!--First name: <input type="text" id="txtNome" name="FirstName" value=""><br>
+                    Last name: <input type="text" name="LastName" value="Mouse"><br>-->
+                    <!--<input type="submit" value="Submit">-->
+                </form>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 " style="border: 0px solid;">
+
+                <div class="sca-contatos-quadro" style="border: 0px solid; position: relative; height: 400px;">
+
+                    <div style="border: 0px solid; width: 230px; margin: 0 auto 0 auto; top: -50px; position: relative;">
+                        <img src="Images/email.png" class="img-responsive" />
+                    </div>
+
+                    <div class="sca-contatos-texto text-center" style="border: 0px solid;">
+                        <p><i class="icon-phone-circled">Televendas: (XX) XXXX-XXXX</i></p>
+                        <p><i class="icon-group-circled">SAC: (XX) XXXX–XXXX</i></p>
+                        <p><i class="icon-whatsapp">Whatsapp: (XX) XXXXX-XXXX</i></p>
+                        <p><i class="icon-mail-4">E-mail: faleconosco@sca.com.br</i></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-------------------------------------------------------------------------------------------->
+    <!--footer-->
+    <!-------------------------------------------------------------------------------------------->
+    <section class="container col-xs-12">
+        <div class="row sca-footer-background">
+            <div class="col-xs-12 text-center" style="color: #fff;">
+                <span class="glyphicon glyphicon-info-sign" style="font-size: 2em; margin-top: 20px;"></span>
+                <p>OR Sistemas LTDA.</p>
+                <p>Sociedade com sede na Cidade do Rio de Janeiro</p>
+                <p>Copyright © OR Sistemas</p>
+            </div>
+        </div>
+        <!--<div class="row" style="height: auto; border: 0px solid #808080; background-color: #6c6c6c;">
+            <div class="col-xs-12 text-center" style="color: #fff; margin-top: 10px; font-weight: bold;">
+                <p>Desenvolvido por Alessandra Ferreira e Osvaldo Ribeiro</p>
+            </div>
+        </div>-->
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/sca.js"></script>
+    <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html ng-app="SCA">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-controller="LoginController">
+    <section class="container sca-login-container-margin">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+                <center>
+                    <img src="Images/logo-sca.png" class="sca-login-logo" />
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+                <fieldset class="sca-login-fieldset-border">
+                    <div class="sca-login-titulo-background">
+                        Login
+                    </div>
+                    <form name="loginForm" class="sca-login-form-margin">
+                        <div class="form-group">
+                            <label>Login:</label>
+                            <input type="text" name="login" class="form-control" ng-model="Usuario.login" required />
+                            <div ng-show="loginForm.login.$dirty" ng-messages="loginForm.login.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe o login.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Senha:</label>
+                            <input type="password" name="senha" class="form-control" ng-model="Usuario.senha" required />
+                            <div ng-show="loginForm.senha.$dirty" ng-messages="loginForm.senha.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe a senha.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn sca-login-button" ng-disabled="loginForm.$invalid" ng-click="login()">Acessar</button>
+                        </div>
+
+                        <div id="divErrorMesage" class="form-group" ng-if="errorMessage">
+                            <span class="text-danger sca-mensagem-erro-login-texto">
+                                {{errorMessage}}
+                            </span>
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 text-center sca-login-direitos-color">
+                <label>OR Sistemas © - Todos os direitos reservados</label>
+            </div>
+
+        </div>
+    </section>
+
+    <!--****************************************************************************************-->
+    <!--Processando-->
+    <center>
+        <div id="divProcessando" class="divPopUp" style="display: none;">
+            <div id="" class="divMiddlePopUpProcessando" style="display: block;">
+                <img src="images/ajax-loader.gif" alt="" /><br />
+                Processando...
+            </div>
+        </div>
+    </center>
+    <!--****************************************************************************************-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-messages.min.js"></script>
+
+    <!--Angular-->
+    <script src="js/app.js"></script>
+    <script src="js/config/constantConfig.js"></script>
+    <script src="js/services/login-service.js"></script>
+
+    <!--Controllers-->
+    <script src="js/controllers/login-controller.js"></script>
+</body>
+</html>

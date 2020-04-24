@@ -1,0 +1,228 @@
+﻿<div id="validar-login" ng-controller="BaseController"></div>
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" ng-model="procurar" class="form-control" placeholder="Pesquisar...">
+                    <button class="btn btn-success" title="Novo" data-target="#janela-modal-cadastro" data-toggle="modal" ng-click="novo()"><span class="glyphicon glyphicon-file"></span> Novo</button>
+                </div>
+            </form>
+            <div class="table-responsive" style="overflow-y: hidden; width: 100%;">
+                <table class="table table-bordered table-condensed table-hover" ng-init="listar()">
+                    <thead class="sca-home-backgroud-default">
+                        <tr>
+                            <th style="display: none;">Id</th>
+                            <th ng-click="ordenar('Id')">
+                                Id
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Id'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Nome')">
+                                Nome
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Nome'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Login')">
+                                Login
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Login'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Perfil')">
+                                Perfil
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Perfil'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th ng-click="ordenar('Situacao')">
+                                Situação
+                                <span class="glyphicon icon-sort"
+                                      ng-show="sortKey=='Situacao'"
+                                      ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="usuario in Usuarios|filter:procurar|orderBy:sortKey:reverse">
+                            <!--<tr dir-paginate="solicitacao in solicitacoes|filter:procurar|orderBy:sortKey:reverse|itemsPerPage:20">-->
+                            <td>{{usuario.id}}</td>
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.login}}</td>
+                            <td>{{usuario.perfil.nome}}</td>
+                            <td>{{usuario.situacao}}</td>
+                            <td class="text-center" style="width: 150px;">
+                                <button class="btn btn-sm btn-primary" title="Editar" data-target="#janela-modal-cadastro" data-toggle="modal" ng-click="editar(usuario.id)"><span class="glyphicon glyphicon-pencil"></span></button>
+                                <button class="btn btn-sm btn-danger" title="Excluir" data-target="#janela-modal-exclusao" data-toggle="modal" ng-click="confirmarExclusao(usuario.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="12">
+                                Quantidade total de registros: {{Usuarios.length}}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!--<div style="border: 0px solid; margin-top: -20px;">
+                    <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--modal de cadastro e edição de dados-->
+<div id="janela-modal-cadastro" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header sca-home-backgroud-default">
+                <h4>Cadastro de Acesso</h4>
+            </div>
+
+            <form name="cadastroForm" novalidate>
+
+                <div class="modal-body" style="font-size: 0.9em;">
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12">
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="nome" class="form-control" ng-model="Usuario.nome" required ng-disabled="Usuario.situacao == 'INATIVO'" />
+                            <div ng-messages="cadastroForm.nome.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe o Nome.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12">
+                            <label for="nome">Login:</label>
+                            <input type="text" name="login" class="form-control" ng-model="Usuario.login" required ng-disabled="Usuario.situacao == 'INATIVO'" />
+                            <div ng-messages="cadastroForm.login.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe o Login.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12">
+                            <label for="nome">Senha:</label>
+                            <input type="password" name="senha" class="form-control" ng-model="Usuario.senha" required ng-disabled="Usuario.situacao == 'INATIVO'" />
+                            <div ng-messages="cadastroForm.senha.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, informe a Senha.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12">
+                            <label for="nome">Confirmar senha:</label>
+                            <input type="password" name="confirmarSenha" class="form-control" ng-model="Usuario.confirmarSenha" ng-pattern="Usuario.confirmarSenha" required ng-disabled="Usuario.situacao == 'INATIVO'" />
+                            <div ng-messages="cadastroForm.confirmarSenha.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, confirme a senha.
+                                </div>
+                                <div ng-message="pattern" class="text-danger">
+                                    As senhas não correspondem.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row cadastro-row">
+                        <div class="col-xs-12 col-lg-6">
+                            <label for="perfil" name="status">Perfil:</label>
+                            <br />
+                            <select id="ddlPerfil"
+                                    class="form-control"
+                                    name="perfil"
+                                    ng-model="Usuario.perfilId"
+                                    required
+                                    ng-disabled="Usuario.situacao == 'INATIVO'"
+                                    ng-init="listarPerfis()">
+                                <option value="">Selecione</option>
+                                <option style="height: 34px;" ng-repeat="perfil in Perfis" value="{{perfil.id}}" ng-selected="Usuario.perfilId == perfil.id"> {{perfil.nome}} </option>
+                            </select>
+                            <div ng-messages="cadastroForm.perfil.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, escolha um Perfil.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <label for="status" name="status">Status:</label>
+                            <br />
+                            <select id="ddlStatus"
+                                    class="form-control"
+                                    name="situacao"
+                                    ng-model="Usuario.situacao"
+                                    required>
+                                <option value="">Selecione</option>
+                                <option value="ATIVO">Ativo</option>
+                                <option value="INATIVO">Inativo</option>
+                            </select>
+                            <div ng-messages="cadastroForm.situacao.$error">
+                                <div ng-message="required" class="text-danger">
+                                    Por favor, escolha uma opção.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-success btn-large" ng-disabled="cadastroForm.$invalid" ng-click="salvarOuAtualizar()"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+                        &nbsp;
+                        <button class="btn btn-danger btn-large" data-dismiss="modal" ng-click="fecharCadastro()"><span class="glyphicon glyphicon-remove-sign"></span> Fechar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--modal de exclusao-->
+<div id="janela-modal-exclusao" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4>Excluir Acesso</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        Deseja realmente excluir o acesso?
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-3 col-lg-offset-2 text-center" style="margin-bottom: 10px;">
+                        <button class="btn btn-success btn-block" data-dismiss="modal" ng-click="excluir()"><span class="glyphicon glyphicon-ok"></span> Sim</button>
+                    </div>
+                    <div class="col-lg-3 col-lg-offset-2 text-center">
+                        <button class="btn btn-danger btn-block pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-ban-circle"></span> Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/common/logout.js"></script>-->

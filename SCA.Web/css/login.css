@@ -1,0 +1,34 @@
+﻿.sca-login-container-margin {
+    margin-top: 100px;
+}
+
+.sca-login-logo {
+    width: 180px;
+    margin: 0 auto 0 auto;
+}
+
+.sca-login-fieldset-border {
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+}
+
+.sca-login-titulo-background {
+    background: #43655c;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.sca-login-form-margin {
+    margin: 15px;
+}
+
+.sca-login-button {
+    background-color: #43A385;
+    color: #fff;
+    border-color: #43A385;
+}
+
+.sca-login-direitos-color {
+    color: #808080;
+}

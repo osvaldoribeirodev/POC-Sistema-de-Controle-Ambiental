@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Interface Web", "1 - Interface Web", "{5047633A-03AB-4E01-905E-A4EFF23D938D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - API Ativos", "3 - API Ativos", "{9A4E0980-103F-4E55-BE1B-E7F851D20938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCA.Web", "SCA.Web\SCA.Web.csproj", "{871A08F4-7754-48D3-9ED8-D980F3E7F764}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCA.ModuloAtivo.Api", "SCA.ModuloAtivo.Api\SCA.ModuloAtivo.Api.csproj", "{34F35DFC-4CEE-4408-A451-546D1CC5179A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - API Administrador", "2 - API Administrador", "{589AE230-23EF-4D2B-9858-C5EE2E7B5C8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCA.ModuloAdmin.Api", "SCA.ModuloAdmin.Api\SCA.ModuloAdmin.Api.csproj", "{114CDBDB-EB5A-4F74-834C-BF139FCE71E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - API Sistema de Aquisicao", "4 - API Sistema de Aquisicao", "{53564039-646B-40D5-91BC-DFB66E732620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAquisicao.Api", "SistemaAquisicao.Api\SistemaAquisicao.Api.csproj", "{E130312D-9B4E-4F33-944B-9606FFBC592C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{871A08F4-7754-48D3-9ED8-D980F3E7F764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871A08F4-7754-48D3-9ED8-D980F3E7F764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871A08F4-7754-48D3-9ED8-D980F3E7F764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871A08F4-7754-48D3-9ED8-D980F3E7F764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F35DFC-4CEE-4408-A451-546D1CC5179A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F35DFC-4CEE-4408-A451-546D1CC5179A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F35DFC-4CEE-4408-A451-546D1CC5179A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F35DFC-4CEE-4408-A451-546D1CC5179A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{114CDBDB-EB5A-4F74-834C-BF139FCE71E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114CDBDB-EB5A-4F74-834C-BF139FCE71E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114CDBDB-EB5A-4F74-834C-BF139FCE71E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114CDBDB-EB5A-4F74-834C-BF139FCE71E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E130312D-9B4E-4F33-944B-9606FFBC592C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E130312D-9B4E-4F33-944B-9606FFBC592C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E130312D-9B4E-4F33-944B-9606FFBC592C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E130312D-9B4E-4F33-944B-9606FFBC592C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{871A08F4-7754-48D3-9ED8-D980F3E7F764} = {5047633A-03AB-4E01-905E-A4EFF23D938D}
+		{34F35DFC-4CEE-4408-A451-546D1CC5179A} = {9A4E0980-103F-4E55-BE1B-E7F851D20938}
+		{114CDBDB-EB5A-4F74-834C-BF139FCE71E1} = {589AE230-23EF-4D2B-9858-C5EE2E7B5C8E}
+		{E130312D-9B4E-4F33-944B-9606FFBC592C} = {53564039-646B-40D5-91BC-DFB66E732620}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACE5EE97-6CB0-4FE3-A924-C031223C8354}
+	EndGlobalSection
+EndGlobal
